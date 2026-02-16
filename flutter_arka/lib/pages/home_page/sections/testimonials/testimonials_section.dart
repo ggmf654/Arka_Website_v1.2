@@ -1,11 +1,10 @@
-
+import 'package:flutter/material.dart';
 import '../../../../constants/const_data.dart';
+import '../../../../constants/responsive_scope.dart';
+import '../../../../theme/app_theme.dart';
 import 'navigation_dots.dart';
 import 'testimonial_card_compact.dart';
 import 'testimonials_header.dart';
-import 'package:flutter/material.dart';
-import '../../../../theme/app_theme.dart';
-import '../../../../constants/responsive_scope.dart';
 
 class TestimonialsSection extends StatefulWidget {
   const TestimonialsSection({super.key});
@@ -15,9 +14,15 @@ class TestimonialsSection extends StatefulWidget {
 }
 
 class _TestimonialsSectionState extends State<TestimonialsSection> {
-  final int _currentIndex = 0;
+  int _currentIndex = 0;
 
   final testimonials = ConstData.testimonials;
+
+  void _changeIndex(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,14 +43,21 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
         children: [
           const TestimonialsHeader(),
           const SizedBox(height: 60),
-          TestimonialCardCompact(
-            isMobile: isMobile,
-            isTablet: isTablet,
-            currentIndex: _currentIndex,
+          AnimatedSwitcher(
+            duration: const Duration(milliseconds: 300),
+            child: TestimonialCardCompact(
+              key: ValueKey(_currentIndex),
+              isMobile: isMobile,
+              isTablet: isTablet,
+              currentIndex: _currentIndex,
+            ),
           ),
           const SizedBox(height: 32),
           NavigationDots(
-              currentIndex: _currentIndex, testimonials: testimonials),
+            currentIndex: _currentIndex,
+            testimonials: testimonials,
+            onChanged: _changeIndex,
+          ),
         ],
       ),
     );

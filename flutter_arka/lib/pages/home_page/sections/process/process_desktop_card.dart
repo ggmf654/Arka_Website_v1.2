@@ -34,7 +34,7 @@ class ProcessDesktopCard extends StatelessWidget {
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 300),
               margin: const EdgeInsets.only(bottom: 24),
-              padding: const EdgeInsets.all(28),
+              padding: const EdgeInsets.fromLTRB(28,28,28,35),
               decoration: BoxDecoration(
                 color: isHovered ? AppTheme.cardLighter : AppTheme.cardDark,
                 borderRadius: BorderRadius.circular(12),

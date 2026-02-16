@@ -1,26 +1,17 @@
 import 'package:flutter/material.dart';
-
 import '../../../../theme/app_theme.dart';
 
-class NavigationDots extends StatefulWidget {
+class NavigationDots extends StatelessWidget {
   final int currentIndex;
   final List testimonials;
+  final Function(int) onChanged;
 
-  const NavigationDots(
-      {super.key, required this.currentIndex, required this.testimonials});
-
-  @override
-  State<NavigationDots> createState() => _NavigationDotsState();
-}
-
-class _NavigationDotsState extends State<NavigationDots> {
-  late int _currentIndex;
-
-  @override
-  void initState() {
-    super.initState();
-    _currentIndex = widget.currentIndex;
-  }
+  const NavigationDots({
+    super.key,
+    required this.currentIndex,
+    required this.testimonials,
+    required this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,25 +19,27 @@ class _NavigationDotsState extends State<NavigationDots> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         IconButton(
-          onPressed:
-              _currentIndex > 0 ? () => setState(() => _currentIndex--) : null,
+          onPressed: currentIndex > 0
+              ? () => onChanged(currentIndex - 1)
+              : null,
           icon: Icon(
             Icons.arrow_back,
-            color:
-                _currentIndex > 0 ? AppTheme.textPrimary : AppTheme.textMuted,
+            color: currentIndex > 0
+                ? AppTheme.textPrimary
+                : AppTheme.textMuted,
           ),
         ),
         const SizedBox(width: 16),
-        ...List.generate(widget.testimonials.length, (index) {
+        ...List.generate(testimonials.length, (index) {
           return GestureDetector(
-            onTap: () => setState(() => _currentIndex = index),
+            onTap: () => onChanged(index),
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 200),
-              width: _currentIndex == index ? 24 : 8,
+              width: currentIndex == index ? 24 : 8,
               height: 8,
               margin: const EdgeInsets.symmetric(horizontal: 4),
               decoration: BoxDecoration(
-                color: _currentIndex == index
+                color: currentIndex == index
                     ? AppTheme.primaryGreen
                     : AppTheme.borderColor,
                 borderRadius: BorderRadius.circular(4),
@@ -56,12 +49,12 @@ class _NavigationDotsState extends State<NavigationDots> {
         }),
         const SizedBox(width: 16),
         IconButton(
-          onPressed: _currentIndex < widget.testimonials.length - 1
-              ? () => setState(() => _currentIndex++)
+          onPressed: currentIndex < testimonials.length - 1
+              ? () => onChanged(currentIndex + 1)
               : null,
           icon: Icon(
             Icons.arrow_forward,
-            color: _currentIndex < widget.testimonials.length - 1
+            color: currentIndex < testimonials.length - 1
                 ? AppTheme.textPrimary
                 : AppTheme.textMuted,
           ),

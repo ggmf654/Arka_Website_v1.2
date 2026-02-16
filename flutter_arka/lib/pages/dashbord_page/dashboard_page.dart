@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_declarations, prefer_const_constructors, deprecated_member_use, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import '../theme/app_theme.dart';
+import '../../theme/app_theme.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});

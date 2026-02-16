@@ -1,14 +1,14 @@
+import 'sections/contact/contact_section.dart';
 import 'package:flutter/material.dart';
-import '../theme/app_theme.dart';
-import '../widgets/navigation_bar.dart';
-import '../widgets/footer.dart';
-import '../sections/hero_section.dart';
-import '../sections/services_section.dart';
-import '../sections/about_section.dart';
-import '../sections/portfolio_section.dart';
-import '../sections/process_section.dart';
-import '../sections/testimonials_section.dart';
-import '../sections/contact_section.dart';
+import '../../theme/app_theme.dart';
+import 'widgets/navigation_bar.dart';
+import 'widgets/footer.dart';
+import 'sections/hero/hero_section.dart';
+import 'sections/services/services_section.dart';
+import 'sections/about/about_section.dart';
+import 'sections/portfolio/portfolio_section.dart';
+import 'sections/process/process_section.dart';
+import 'sections/testimonials/testimonials_section.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,8 +19,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
-  
-  // Section Keys for scrolling
+
   final GlobalKey _homeKey = GlobalKey();
   final GlobalKey _servicesKey = GlobalKey();
   final GlobalKey _aboutKey = GlobalKey();
@@ -36,7 +35,7 @@ class _HomePageState extends State<HomePage> {
 
   void _scrollToSection(String section) {
     GlobalKey? targetKey;
-    
+
     switch (section) {
       case 'home':
         targetKey = _homeKey;
@@ -71,17 +70,14 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.backgroundDark,
+      drawer: ArkaNavigationBar.buildDrawer(context, _scrollToSection),
       body: Stack(
         children: [
-          // Main Content
           SingleChildScrollView(
             controller: _scrollController,
             child: Column(
               children: [
-                // Spacer for fixed nav
                 const SizedBox(height: 80),
-                
-                // Hero Section
                 Container(
                   key: _homeKey,
                   child: HeroSection(
@@ -89,47 +85,31 @@ class _HomePageState extends State<HomePage> {
                     onViewWork: () => _scrollToSection('portfolio'),
                   ),
                 ),
-                
-                // Services Section
                 Container(
                   key: _servicesKey,
                   child: const ServicesSection(),
                 ),
-                
-                // About Section
                 Container(
                   key: _aboutKey,
                   child: const AboutSection(),
                 ),
-                
-                // Portfolio Section
                 Container(
                   key: _portfolioKey,
                   child: const PortfolioSection(),
                 ),
-                
-                // Process Section
                 Container(
                   key: _processKey,
                   child: const ProcessSection(),
                 ),
-                
-                // Testimonials Section
                 const TestimonialsSection(),
-                
-                // Contact Section
                 Container(
                   key: _contactKey,
                   child: const ContactSection(),
                 ),
-                
-                // Footer
                 const ArkaFooter(),
               ],
             ),
           ),
-          
-          // Fixed Navigation Bar
           Positioned(
             top: 0,
             left: 0,

@@ -55,7 +55,7 @@ class FooterTablet extends StatelessWidget {
               child: LinkColumn(
                 title: 'Contact',
                 links: [
-                  'arkaswft@gmail.com',
+                  'arkaswft.dam@gmail.com',
                   '+963 997265638',
                   'Damascus, Syria',
                 ],

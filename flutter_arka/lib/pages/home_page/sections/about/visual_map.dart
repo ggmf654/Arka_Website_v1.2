@@ -1,4 +1,5 @@
 import '../../../../constants/responsive_scope.dart';
+import '../../widgets/logo.dart';
 import 'tech_card.dart';
 import 'package:flutter/material.dart';
 
@@ -50,10 +51,7 @@ class VisualMap extends StatelessWidget {
           ),
           Center(
             child: Container(
-              width: 100,
-              height: 100,
               decoration: BoxDecoration(
-                color: AppTheme.primaryGreen,
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
@@ -63,16 +61,7 @@ class VisualMap extends StatelessWidget {
                   ),
                 ],
               ),
-              child: const Center(
-                child: Text(
-                  'A',
-                  style: TextStyle(
-                    color: AppTheme.backgroundDark,
-                    fontSize: 48,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+              child:const Logo(),
             ),
           ),
         ],

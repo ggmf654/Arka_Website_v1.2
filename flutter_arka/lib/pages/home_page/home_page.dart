@@ -73,41 +73,45 @@ class _HomePageState extends State<HomePage> {
       drawer: ArkaNavigationBar.buildDrawer(context, _scrollToSection),
       body: Stack(
         children: [
-          SingleChildScrollView(
-            controller: _scrollController,
-            child: Column(
-              children: [
-                const SizedBox(height: 80),
-                Container(
-                  key: _homeKey,
-                  child: HeroSection(
-                    onGetStarted: () => _scrollToSection('contact'),
-                    onViewWork: () => _scrollToSection('portfolio'),
+          Scrollbar(
+            thumbVisibility: true,
+            interactive: true,
+            child: SingleChildScrollView(
+              controller: _scrollController,
+              child: Column(
+                children: [
+                  const SizedBox(height: 80),
+                  Container(
+                    key: _homeKey,
+                    child: HeroSection(
+                      onGetStarted: () => _scrollToSection('contact'),
+                      onViewWork: () => _scrollToSection('portfolio'),
+                    ),
                   ),
-                ),
-                Container(
-                  key: _servicesKey,
-                  child: const ServicesSection(),
-                ),
-                Container(
-                  key: _aboutKey,
-                  child: const AboutSection(),
-                ),
-                Container(
-                  key: _portfolioKey,
-                  child: const PortfolioSection(),
-                ),
-                Container(
-                  key: _processKey,
-                  child: const ProcessSection(),
-                ),
-                const TestimonialsSection(),
-                Container(
-                  key: _contactKey,
-                  child: const ContactSection(),
-                ),
-                const ArkaFooter(),
-              ],
+                  Container(
+                    key: _servicesKey,
+                    child: const ServicesSection(),
+                  ),
+                  Container(
+                    key: _aboutKey,
+                    child: const AboutSection(),
+                  ),
+                  Container(
+                    key: _portfolioKey,
+                    child: const PortfolioSection(),
+                  ),
+                  Container(
+                    key: _processKey,
+                    child: const ProcessSection(),
+                  ),
+                  const TestimonialsSection(),
+                  Container(
+                    key: _contactKey,
+                    child: const ContactSection(),
+                  ),
+                  const ArkaFooter(),
+                ],
+              ),
             ),
           ),
           Positioned(

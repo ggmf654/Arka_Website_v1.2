@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../constants/assets.dart';
 import '../../../theme/app_theme.dart';
 
 class Logo extends StatelessWidget {
@@ -11,23 +12,18 @@ class Logo extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          width: 32,
-          height: 32,
-          decoration: BoxDecoration(
-            color: AppTheme.primaryGreen,
-            borderRadius: BorderRadius.circular(6),
-          ),
-          child: const Center(
-            child: Text(
-              'A',
-              style: TextStyle(
-                color: AppTheme.backgroundDark,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(6),
             ),
-          ),
-        ),
+            child: Center(
+              child: Image.asset(
+                AppImages.logo,
+                fit: BoxFit.contain,
+
+              ),
+            )),
         const SizedBox(width: 10),
         const Text(
           'ARKA',

@@ -59,8 +59,8 @@ class FooterDesktop extends StatelessWidget {
           child: LinkColumn(
             title: 'Contact',
             links: [
-              'arkaswft@gmail.com',
-              '+963 997265638',
+              'arkaswft.dam@gmail.com',
+              '+963 997 265 638',
               'Damascus, Syria',
             ],
           ),

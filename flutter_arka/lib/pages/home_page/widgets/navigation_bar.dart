@@ -1,3 +1,4 @@
+import 'package:arka_website/pages/home_page/widgets/logo.dart';
 import 'package:flutter/material.dart';
 import '../../../constants/responsive_scope.dart';
 import '../../../theme/app_theme.dart';
@@ -81,7 +82,7 @@ class _ArkaNavigationBarState extends State<ArkaNavigationBar> {
             ? 0.04
             : data.isTablet
             ? 0.05
-            : 0.08);
+            : 0.06);
 
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
@@ -90,7 +91,7 @@ class _ArkaNavigationBarState extends State<ArkaNavigationBar> {
         vertical: data.isMobile ? 12 : 16,
       ),
       decoration: BoxDecoration(
-        color: AppTheme.backgroundDark.withOpacity(0.95),
+        color: AppTheme.backgroundDark.withOpacity(0.75),
         border: Border(
           bottom: BorderSide(
             color: _isScrolled ? AppTheme.borderColor : Colors.transparent,
@@ -102,7 +103,7 @@ class _ArkaNavigationBarState extends State<ArkaNavigationBar> {
           ? Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _buildLogo(data, center: false),
+          const Logo(),
           Builder(
             builder: (context) => IconButton(
               icon: const Icon(Icons.menu, color: AppTheme.textPrimary),
@@ -115,7 +116,7 @@ class _ArkaNavigationBarState extends State<ArkaNavigationBar> {
           ? Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          _buildLogo(data, center: true),
+          const Logo(),
           const SizedBox(height: 16),
           _buildDesktopNav(data, isCentered: true),
         ],
@@ -123,57 +124,13 @@ class _ArkaNavigationBarState extends State<ArkaNavigationBar> {
           : Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _buildLogo(data, center: false),
+         const Logo(),
           _buildDesktopNav(data, isCentered: false),
         ],
       ),
     );
   }
 
-  Widget _buildLogo(ResponsiveData data, {required bool center}) {
-    final logoSize = data.isMobile ? 32.0 : 40.0;
-    final spacing = data.isMobile ? 8.0 : 12.0;
-    final fontSize = data.isMobile ? 18.0 : 22.0;
-
-    final logoRow = Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          width: logoSize,
-          height: logoSize,
-          decoration: BoxDecoration(
-            color: AppTheme.primaryGreen,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: const Center(
-            child: Text(
-              'A',
-              style: TextStyle(
-                color: AppTheme.backgroundDark,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
-        SizedBox(width: spacing),
-        Text(
-          'ARKA',
-          style: TextStyle(
-            color: AppTheme.textPrimary,
-            fontSize: fontSize,
-            fontWeight: FontWeight.w700,
-            letterSpacing: 2,
-          ),
-        ),
-      ],
-    );
-
-    if (center) {
-      return Center(child: logoRow);
-    } else {
-      return logoRow;
-    }
-  }
 
   Widget _buildDesktopNav(ResponsiveData data, {required bool isCentered}) {
     final fontSize = data.isTablet ? 13.0 : 14.0;

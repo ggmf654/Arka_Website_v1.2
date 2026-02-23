@@ -10,7 +10,8 @@ class ProcessStepCard extends StatefulWidget {
   final bool isLast;
   final bool isMobile;
 
-  const ProcessStepCard({super.key,
+  const ProcessStepCard({
+    super.key,
     required this.step,
     required this.isLast,
     required this.isMobile,
@@ -20,8 +21,7 @@ class ProcessStepCard extends StatefulWidget {
   State<ProcessStepCard> createState() => _ProcessStepCardState();
 }
 
-class _ProcessStepCardState extends State<ProcessStepCard>
-    with SingleTickerProviderStateMixin {
+class _ProcessStepCardState extends State<ProcessStepCard> {
   bool _isHovered = false;
 
   @override
@@ -29,7 +29,7 @@ class _ProcessStepCardState extends State<ProcessStepCard>
     return VisibilityDetector(
       key: Key(widget.step.number),
       onVisibilityChanged: (info) {
-        if (info.visibleFraction > 0.5) {
+        if (info.visibleFraction > 0.5 && !_isHovered) {
           setState(() => _isHovered = true);
         } else if (info.visibleFraction < 0.5 && _isHovered) {
           setState(() => _isHovered = false);
@@ -41,18 +41,21 @@ class _ProcessStepCardState extends State<ProcessStepCard>
         transform: _isHovered
             ? Matrix4.translationValues(0, -4, 0)
             : Matrix4.identity(),
-
         child: Opacity(
           opacity: _isHovered ? 1 : 0.85,
           child: widget.isMobile
-              ? ProcessMobileCard(isLast: widget.isLast, isHovered: _isHovered, step: widget.step,)
-              : ProcessDesktopCard(isLast: widget.isLast, isHovered: _isHovered, step: widget.step,),
+              ? ProcessMobileCard(
+            isLast: widget.isLast,
+            isHovered: _isHovered,
+            step: widget.step,
+          )
+              : ProcessDesktopCard(
+            isLast: widget.isLast,
+            isHovered: _isHovered,
+            step: widget.step,
+          ),
         ),
       ),
     );
   }
-
-
 }
-
-

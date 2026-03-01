@@ -4,7 +4,6 @@ import 'package:arka_website/pages/home_page/sections/nav_bar/nav_bar_desktop.da
 import 'package:flutter/material.dart';
 import '../../../../constants/responsive_scope.dart';
 import '../../../../theme/app_theme.dart';
-import '../../../dashbord_page/dashboard_page.dart';
 
 class ArkaNavigationBar extends StatefulWidget {
   final Function(String) onNavigate;

@@ -1,8 +1,9 @@
+import 'sections/our_team/our_team_section.dart';
 import 'sections/contact/contact_section.dart';
 import 'package:flutter/material.dart';
 import '../../theme/app_theme.dart';
-import 'widgets/navigation_bar.dart';
-import 'widgets/footer.dart';
+import 'sections/nav_bar/navigation_bar.dart';
+import 'sections/footer/footer.dart';
 import 'sections/hero/hero_section.dart';
 import 'sections/services/services_section.dart';
 import 'sections/about/about_section.dart';
@@ -20,12 +21,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
 
-  final GlobalKey _homeKey = GlobalKey();
-  final GlobalKey _servicesKey = GlobalKey();
-  final GlobalKey _aboutKey = GlobalKey();
-  final GlobalKey _portfolioKey = GlobalKey();
-  final GlobalKey _processKey = GlobalKey();
-  final GlobalKey _contactKey = GlobalKey();
+  static GlobalKey homeKey = GlobalKey();
+  static GlobalKey servicesKey = GlobalKey();
+  static GlobalKey aboutKey = GlobalKey();
+  static GlobalKey testimonialsKey = GlobalKey();
+  static GlobalKey portfolioKey = GlobalKey();
+  static GlobalKey processKey = GlobalKey();
+  static GlobalKey contactKey = GlobalKey();
+  static GlobalKey ourTeamKey = GlobalKey();
 
   @override
   void dispose() {
@@ -33,27 +36,33 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  void _scrollToSection(String section) {
+  static void _scrollToSection(String section) {
     GlobalKey? targetKey;
 
     switch (section) {
       case 'home':
-        targetKey = _homeKey;
+        targetKey = homeKey;
         break;
       case 'services':
-        targetKey = _servicesKey;
+        targetKey = servicesKey;
         break;
       case 'about':
-        targetKey = _aboutKey;
+        targetKey = aboutKey;
         break;
       case 'portfolio':
-        targetKey = _portfolioKey;
+        targetKey = portfolioKey;
         break;
       case 'process':
-        targetKey = _processKey;
+        targetKey = processKey;
         break;
       case 'contact':
-        targetKey = _contactKey;
+        targetKey = contactKey;
+        break;
+      case 'ourTeam':
+        targetKey = ourTeamKey;
+        break;
+      case 'testimonials':
+        targetKey = testimonialsKey;
         break;
     }
 
@@ -82,31 +91,38 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   const SizedBox(height: 80),
                   Container(
-                    key: _homeKey,
+                    key: homeKey,
                     child: HeroSection(
                       onGetStarted: () => _scrollToSection('contact'),
                       onViewWork: () => _scrollToSection('portfolio'),
                     ),
                   ),
                   Container(
-                    key: _servicesKey,
+                    key: servicesKey,
                     child: const ServicesSection(),
                   ),
                   Container(
-                    key: _aboutKey,
+                    key: aboutKey,
                     child: const AboutSection(),
                   ),
                   Container(
-                    key: _portfolioKey,
+                    key: portfolioKey,
                     child: const PortfolioSection(),
                   ),
                   Container(
-                    key: _processKey,
+                    key: processKey,
                     child: const ProcessSection(),
                   ),
-                  const TestimonialsSection(),
                   Container(
-                    key: _contactKey,
+                    key: ourTeamKey,
+                    child: const OurTeamSection(),
+                  ),
+                  Container(
+                    key: testimonialsKey,
+                    child: const TestimonialsSection(),
+                  ),
+                  Container(
+                    key: contactKey,
                     child: const ContactSection(),
                   ),
                   const ArkaFooter(),
@@ -114,7 +130,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          Positioned(
+          const Positioned(
             top: 0,
             left: 0,
             right: 0,

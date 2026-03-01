@@ -58,6 +58,7 @@ class _ContactSectionState extends State<ContactSection> {
 
     return Container(
       width: double.infinity,
+      color: AppTheme.cardDark,
       padding: EdgeInsets.symmetric(
         horizontal: horizontalPadding,
         vertical: 80,

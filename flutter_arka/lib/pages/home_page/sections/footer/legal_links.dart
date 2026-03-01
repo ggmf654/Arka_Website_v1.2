@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../theme/app_theme.dart';
+import '../../../../theme/app_theme.dart';
 
 class LegalLinks extends StatelessWidget {
   const LegalLinks({super.key});

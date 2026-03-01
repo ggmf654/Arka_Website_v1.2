@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../../../theme/app_theme.dart';
+import '../../../theme/app_theme.dart';
 
 class NavigationDots extends StatelessWidget {
   final int currentIndex;
-  final List testimonials;
+  final List items;
   final Function(int) onChanged;
 
   const NavigationDots({
     super.key,
     required this.currentIndex,
-    required this.testimonials,
+    required this.items,
     required this.onChanged,
   });
 
@@ -30,7 +30,7 @@ class NavigationDots extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 16),
-        ...List.generate(testimonials.length, (index) {
+        ...List.generate(items.length, (index) {
           return GestureDetector(
             onTap: () => onChanged(index),
             child: AnimatedContainer(
@@ -49,12 +49,12 @@ class NavigationDots extends StatelessWidget {
         }),
         const SizedBox(width: 16),
         IconButton(
-          onPressed: currentIndex < testimonials.length - 1
+          onPressed: currentIndex < items.length - 1
               ? () => onChanged(currentIndex + 1)
               : null,
           icon: Icon(
             Icons.arrow_forward,
-            color: currentIndex < testimonials.length - 1
+            color: currentIndex < items.length - 1
                 ? AppTheme.textPrimary
                 : AppTheme.textMuted,
           ),

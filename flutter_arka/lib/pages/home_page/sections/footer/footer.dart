@@ -1,8 +1,8 @@
-import 'package:arka_website/pages/home_page/widgets/footer_desktop.dart';
-import 'package:arka_website/pages/home_page/widgets/footer_tablet.dart';
+import 'package:arka_website/pages/home_page/sections/footer/footer_desktop.dart';
+import 'package:arka_website/pages/home_page/sections/footer/footer_tablet.dart';
 import 'package:flutter/material.dart';
-import '../../../constants/responsive_scope.dart';
-import '../../../theme/app_theme.dart';
+import '../../../../constants/responsive_scope.dart';
+import '../../../../theme/app_theme.dart';
 import 'copy_right.dart';
 import 'footer_mobile.dart';
 import 'legal_links.dart';
@@ -20,34 +20,34 @@ class ArkaFooter extends StatelessWidget {
         horizontal: data.isMobile ? 24 : 48,
         vertical: 48,
       ),
-      color: AppTheme.cardDark,
+      color: AppTheme.backgroundDark,
       child: Column(
         children: [
           // Footer main content based on device type
           data.isMobile
               ? const FooterMobile()
               : data.isTablet
-              ? const FooterTablet()
-              : const FooterDesktop(),
+                  ? const FooterTablet()
+                  : const FooterDesktop(),
           const SizedBox(height: 40),
           Container(height: 1, color: AppTheme.borderColor),
           const SizedBox(height: 24),
           // Legal and copyright
           data.isMobile
               ? const Column(
-            children: [
-              CopyRight(),
-              SizedBox(height: 16),
-              LegalLinks(),
-            ],
-          )
+                  children: [
+                    CopyRight(),
+                    SizedBox(height: 16),
+                    LegalLinks(),
+                  ],
+                )
               : const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              CopyRight(),
-              LegalLinks(),
-            ],
-          ),
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CopyRight(),
+                    LegalLinks(),
+                  ],
+                ),
         ],
       ),
     );

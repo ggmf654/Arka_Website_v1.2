@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../constants/const_data.dart';
 import '../../../../constants/responsive_scope.dart';
 import '../../../../theme/app_theme.dart';
-import 'navigation_dots.dart';
+import '../../widgets/navigation_dots.dart';
 import 'testimonial_card_compact.dart';
 import 'testimonials_header.dart';
 
@@ -38,7 +38,7 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
         horizontal: horizontalPadding,
         vertical: 80,
       ),
-      color: AppTheme.cardDark,
+      color: AppTheme.backgroundDark,
       child: Column(
         children: [
           const TestimonialsHeader(),
@@ -55,7 +55,7 @@ class _TestimonialsSectionState extends State<TestimonialsSection> {
           const SizedBox(height: 32),
           NavigationDots(
             currentIndex: _currentIndex,
-            testimonials: testimonials,
+            items: testimonials,
             onChanged: _changeIndex,
           ),
         ],

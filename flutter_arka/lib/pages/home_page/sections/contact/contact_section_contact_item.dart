@@ -19,7 +19,7 @@ class ContactSectionContactItem extends StatelessWidget {
           width: 48,
           height: 48,
           decoration: BoxDecoration(
-            color: AppTheme.cardDark,
+            color: AppTheme.backgroundDark,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: AppTheme.borderColor),
           ),

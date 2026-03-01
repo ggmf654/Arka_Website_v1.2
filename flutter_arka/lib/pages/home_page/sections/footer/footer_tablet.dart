@@ -1,7 +1,7 @@
 import 'package:arka_website/pages/home_page/widgets/logo.dart';
 import 'package:flutter/material.dart';
 
-import '../../../theme/app_theme.dart';
+import '../../../../theme/app_theme.dart';
 import 'link_column.dart';
 
 class FooterTablet extends StatelessWidget {
@@ -55,7 +55,7 @@ class FooterTablet extends StatelessWidget {
               child: LinkColumn(
                 title: 'Contact',
                 links: [
-                  'arkaswft.dam@gmail.com',
+                  'arkasoft.dam@gmail.com',
                   '+963 997265638',
                   'Damascus, Syria',
                 ],

@@ -59,7 +59,7 @@ class ContactSectionContactInfo extends StatelessWidget {
           center: center,
           icon: Icons.email_outlined,
           title: 'Email',
-          value: 'arkaswft.dam@gmail.com',
+          value: 'arkasoft.dam@gmail.com',
         ),
         const SizedBox(height: 20),
         ContactSectionContactItem(

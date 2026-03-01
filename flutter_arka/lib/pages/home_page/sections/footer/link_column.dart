@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../theme/app_theme.dart';
+import '../../../../theme/app_theme.dart';
 class LinkColumn extends StatelessWidget {
   const LinkColumn({super.key , required this.title, required this.links,});
 final String title;

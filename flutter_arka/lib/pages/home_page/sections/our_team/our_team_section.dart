@@ -17,9 +17,15 @@ class _OurTeamSectionState extends State<OurTeamSection> {
 
   final List<Map<String, String>> _teamMembers = [
     {
-      "name": "Ammar Safi",
+      "name": "Firas Moait",
       "role": "Founder & Lead Developer",
       "image": "assets/team/member1.jpg",
+    },
+
+    {
+      "name": "Ammar Safi",
+      "role": "Flutter Developer",
+      "image": "assets/team/member3.jpg",
     },
     {
       "name": "Sarah Johnson",
@@ -31,6 +37,7 @@ class _OurTeamSectionState extends State<OurTeamSection> {
       "role": "Backend Engineer",
       "image": "assets/team/member3.jpg",
     },
+
     {
       "name": "Michael Lee",
       "role": "Project Manager",

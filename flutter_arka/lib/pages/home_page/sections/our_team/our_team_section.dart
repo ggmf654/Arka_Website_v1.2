@@ -24,7 +24,7 @@ class _OurTeamSectionState extends State<OurTeamSection> {
 
     {
       "name": "Ammar Safi",
-      "role": "Flutter Developer",
+      "role": "Mobile Developer",
       "image": "assets/team/member3.jpg",
     },
     {
@@ -47,11 +47,6 @@ class _OurTeamSectionState extends State<OurTeamSection> {
       "name": "Emma Wilson",
       "role": "Marketing Specialist",
       "image": "assets/team/member5.jpg",
-    },
-    {
-      "name": "Daniel Smith",
-      "role": "Mobile Developer",
-      "image": "assets/team/member6.jpg",
     },
   ];
 
